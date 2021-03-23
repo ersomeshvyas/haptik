@@ -36,6 +36,10 @@ class BinarySeachTree {
 			} else {
 				if(value.includes(current.val)) {
 					value = value.replace(current.val,'');
+					if(value !== '') {
+						current = this.root;
+						return this.can_create(value);
+					}
 				}
 				
 				if(value > current.val) {
@@ -59,7 +63,7 @@ class Node {
 }
 
 const bt = new BinarySeachTree();
-const list_of_strings = ["back", "end", "front", "tree"];
+const list_of_strings = ["back", "end", "front", "tree", "app"];
 
 for(let string of list_of_strings) {
 	bt.insert(string);
@@ -70,4 +74,5 @@ for(let string of list_of_strings) {
 console.log(bt.can_create("backend"));
 console.log(bt.can_create("frontend"));
 console.log(bt.can_create("frontyard"));
+console.log(bt.can_create("apptree"))
 
